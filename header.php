@@ -77,3 +77,92 @@
     <![endif]-->
     <?php wp_head(); ?>
 </head>
+
+<body data-offset="200" data-spy="scroll" data-target=".ow-navigation" style="overflow: hidden;
+    background: #EEF5FC;">
+	<!-- Loader -->
+	<div id="site-loader" class="load-complete">
+		<div class="loader">
+			<div class="loader-inner ball-clip-rotate">
+				<div></div>
+			</div>
+		</div>
+	</div><!-- Loader /- -->
+	<div id="test-popup" class="white-popup mfp-hide">
+
+
+
+  		<!-- Log in form -->
+						<form class="appoinment-form">
+							<h3><img src="images/appoinment.png" alt="appoinment"/>Log In</h3>
+              <?php wp_login_form( $args );
+              $args = array(
+                'echo'           => true,
+                'remember'       => true,
+                'redirect'       => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+                'form_id'        => 'loginform',
+                'id_username'    => 'user_login',
+                'id_password'    => 'user_pass',
+                'id_remember'    => 'rememberme',
+                'id_submit'      => 'wp-submit',
+                'label_username' => __( 'Username' ),
+                'label_password' => __( 'Password' ),
+                'label_remember' => __( 'Remember Me' ),
+                'label_log_in'   => __( 'Log In' ),
+                'value_username' => '',
+                'value_remember' => false
+              );
+              ?>
+						</form><!-- log in form /- -->
+	</div>
+	<a id="top"></a>
+	<!-- Main Container -->
+	<div class="col-md-9 " style="padding: 0;
+    overflow-y: scroll;
+    height: 100vh;">
+	<!-- Header -->
+		<header class="header-main">
+			<!-- Top Header -->
+			<div class="top-header container-fluid no-padding">
+				<!-- Container -->
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<p><?php bloginfo('description'); ?></p>
+						</div>
+						<div class="col-md-6 text-right" style="padding-right: 0;">
+							<a class="main-button-s open-popup-link" href="#test-popup" title="Book Appointment">Login</a>
+							<a class="main-button-s " href="#" title="Book Appointment">Register</a>
+						</div>
+					</div>
+				</div><!-- container /- -->
+			</div><!-- Top Header /- -->
+			<!-- Logo Block -->
+			<div class="middle-header container-fluid no-padding">
+				<!-- Container -->
+				<div class="container">
+					<div class="row">
+						<!-- <div class="col-md-4 logo-block pull-left"> -->
+							<?php dynamic_sidebar( 'logo' ); ?>
+
+						<!-- </div> -->
+						<div class="col-md-4 text-center hide-on-mobile">
+							<!-- <div class="location"> -->
+								<!-- <h3> <img src="images/location-ic.png" alt="Location" />  Our Location</h3> -->
+								<!-- <p>E44 - Web Corner, Melbourne - 18</p> -->
+								<?php dynamic_sidebar( 'middletext' ); ?>
+							<!-- </div> -->
+
+						</div>
+						<div class="col-md-4 text-right pull-right hide-on-mobile">
+							<!-- <div class="phone">
+								<h3 class="head-h3" style="font-size: 28px !important;"> <img src="images/phone-ic.png" alt="phone" /> (+1)800 433 633</h3>
+								<p>Call Us Now- 24/7 Support</p>
+							</div> -->
+							<?php dynamic_sidebar( 'righttext' ); ?>
+						</div>
+					</div>
+				</div><!-- Container -->
+			</div><!-- Logo Block /- -->
+
+		</header>
